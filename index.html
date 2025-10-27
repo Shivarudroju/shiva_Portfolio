@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shiva Kumar Rudroju | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f9f9f9, #e0f7fa);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #00bcd4;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        .resume-btn {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .resume-btn:hover {
+            background: #0097a7;
+            transform: scale(1.05);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 10%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #222;
+            font-size: 28px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #00bcd4;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .about img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #00bcd4;
+            transition: transform 0.5s ease;
+            animation: float 3s ease-in-out infinite alternate;
+        }
+
+        .about img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        .about-text {
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .about-text h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #00bcd4;
+        }
+
+        .about-text p {
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* SKILLS */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #00bcd4;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+        }
+
+        /* EXPERIENCE */
+        .experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .exp-card {
+            background: white;
+            border-left: 5px solid #00bcd4;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+        }
+
+        .exp-card h3 {
+            color: #00bcd4;
+            margin-bottom: 5px;
+        }
+
+        .exp-card span {
+            font-size: 14px;
+            color: #777;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .exp-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            border-top: 4px solid #00bcd4;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+        }
+
+        .project-card h3 {
+            color: #00bcd4;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: #0097a7;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Shiva Kumar Rudroju</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="resumee-3.pdf" download class="resume-btn">📄 Resume</a>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about">
+            <img src="IMG_3094.jpg" alt="Shiva Kumar Rudroju" />
+            <div class="about-text">
+                <h3>Hi, I'm Shiva 👋</h3>
+                <p>
+                    I’m pursuing my <b>Master’s in Business Analytics</b> and hold a
+                    <b>Bachelor’s degree in Computer Science</b>.
+                    I’m passionate about designing user-friendly digital experiences and developing
+                    responsive web applications.
+                    I’ve worked as a Frontend Developer Intern and built projects like a Face Recognition
+                    Attendance System and Gesture Recognition App with accessible UI/UX designs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="skills-list">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React.js</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Python</div>
+            <div class="skill">SQL</div>
+            <div class="skill">UI/UX Design</div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience">
+            <div class="exp-card">
+                <h3>Junior Software Developer Intern</h3>
+                <span>24HR7 | March 2024 – May 2024</span>
+                <p>
+                    Worked as a Frontend Developer responsible for creating and optimizing user interfaces using
+                    <b>HTML, CSS, and Java</b>. Ensured responsive design and improved user experience across
+                    multiple web applications.
+                </p>
+            </div>
+
+            <div class="exp-card">
+                <h3>Co-founder & Web Developer</h3>
+                <span>Twenty4 Startup | 2024 – Present</span>
+                <p>
+                    Co-founded a startup to design and develop websites and web applications for businesses.
+                    Built corporate websites like <a href="https://lifafacafe.in" target="_blank">Lifafa Café</a> and
+                    <a href="https://amanocafe.in" target="_blank">Amano Café</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Face Recognition Attendance System</h3>
+                <p>Automated attendance system using Python and OpenCV for accurate face recognition.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Gesture Recognition for Deaf and Dumb</h3>
+                <p>Developed a system to interpret hand gestures into text/speech using Python and OpenCV.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact">
+            <div class="contact-buttons">
+                <a href="mailto:shivarudroju21@gmail.com" class="btn">📧 Email Me</a>
+                <a href="tel:+16027275910" class="btn">📞 Call Me</a>
+                <a href="https://www.linkedin.com/in/shiva-kumar-rudroju-100a60270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    target="_blank" class="btn">💼 LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Shiva Kumar Rudroju | Portfolio</p>
+    </footer>
+
+    <script>
+        // Reveal on scroll animation
+        const sections = document.querySelectorAll("section");
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+            sections.forEach(sec => {
+                const top = sec.getBoundingClientRect().top;
+                if (top < triggerBottom) sec.classList.add("visible");
+            });
+        };
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+
+</html>
